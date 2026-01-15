@@ -1,0 +1,42 @@
+[gd_scene format=3 uid="uid://bxn2bulfdh0gu"]
+
+[node name="UpgradeScene" type="Node2D"]
+
+[node name="SceneOrganizer" type="VBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+
+[node name="MainText" type="RichTextLabel" parent="SceneOrganizer"]
+custom_minimum_size = Vector2(0, 100)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 65
+text = "Choose An Upgrade:
+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuMargins" type="MarginContainer" parent="SceneOrganizer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="UpgradeMenu" type="HBoxContainer" parent="SceneOrganizer/MenuMargins"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Upgrade1" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade_1"
+
+[node name="Upgrade2" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade_2"
+
+[node name="Upgrade3" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Upgrade_3"

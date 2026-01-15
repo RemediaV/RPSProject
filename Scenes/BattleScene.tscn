@@ -1,0 +1,136 @@
+[gd_scene load_steps=2 format=3 uid="uid://diebh02lc8gor"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgnae"]
+
+[node name="BattleScene" type="Node2D"]
+
+[node name="RPSField" type="MarginContainer" parent="."]
+offset_top = 1.0
+offset_right = 1152.0
+offset_bottom = 649.0
+theme_override_constants/margin_left = 120
+theme_override_constants/margin_top = 120
+theme_override_constants/margin_right = 120
+theme_override_constants/margin_bottom = 120
+metadata/_edit_lock_ = true
+
+[node name="Seperator" type="VBoxContainer" parent="RPSField"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 20
+metadata/_edit_lock_ = true
+
+[node name="CPU" type="MarginContainer" parent="RPSField/Seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="CPURPSSeperator" type="HBoxContainer" parent="RPSField/Seperator/CPU"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="RockCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Rock"
+
+[node name="PaperCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Paper"
+
+[node name="ScissorsCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+disabled = true
+text = "Scissors"
+
+[node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator"]
+layout_mode = 2
+value = 100.0
+show_percentage = false
+
+[node name="Player" type="MarginContainer" parent="RPSField/Seperator"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="PlayerRPSSeperator" type="HBoxContainer" parent="RPSField/Seperator/Player"]
+layout_mode = 2
+theme_override_constants/separation = 11
+
+[node name="Rock" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Rock"
+
+[node name="Paper" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Paper"
+
+[node name="Scissors" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Scissors"
+
+[node name="LevelIndicator" type="RichTextLabel" parent="."]
+offset_left = 976.0
+offset_top = 8.0
+offset_right = 1144.0
+offset_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 35
+text = "Level: 10"
+horizontal_alignment = 2
+
+[node name="PlayerWins" type="HBoxContainer" parent="."]
+offset_left = 128.0
+offset_top = 522.0
+offset_right = 208.0
+offset_bottom = 542.0
+
+[node name="Win1" type="ColorRect" parent="PlayerWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
+
+[node name="Win2" type="ColorRect" parent="PlayerWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
+
+[node name="CPUWins" type="HBoxContainer" parent="."]
+offset_left = 128.0
+offset_top = 106.0
+offset_right = 208.0
+offset_bottom = 126.0
+
+[node name="Win1" type="ColorRect" parent="CPUWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
+
+[node name="Win2" type="ColorRect" parent="CPUWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
+
+[node name="Submit" type="Button" parent="."]
+offset_left = 976.0
+offset_top = 592.0
+offset_right = 1139.5565
+offset_bottom = 635.0652
+theme_override_styles/focus = SubResource("StyleBoxEmpty_mgnae")
+text = "Submit
+"

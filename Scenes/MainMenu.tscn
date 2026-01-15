@@ -1,0 +1,63 @@
+[gd_scene load_steps=3 format=3 uid="uid://ddajo445l4g10"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bnhvo"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_tt5f1"]
+
+[node name="MainMenu" type="Node2D"]
+
+[node name="MainScene" type="VBoxContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+grow_horizontal = 2
+grow_vertical = 2
+metadata/_edit_use_anchors_ = true
+
+[node name="Title" type="RichTextLabel" parent="MainScene"]
+custom_minimum_size = Vector2(0, 200)
+layout_mode = 2
+theme_override_font_sizes/normal_font_size = 100
+text = "RPS Project"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MenuPostion" type="HBoxContainer" parent="MainScene"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="LeftSpacer" type="PanelContainer" parent="MainScene/MenuPostion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_bnhvo")
+
+[node name="MarginMenuContainer" type="MarginContainer" parent="MainScene/MenuPostion"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/margin_left = 30
+theme_override_constants/margin_top = 0
+theme_override_constants/margin_right = 30
+theme_override_constants/margin_bottom = 50
+
+[node name="MenuContainer" type="VBoxContainer" parent="MainScene/MenuPostion/MarginMenuContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Start" type="Button" parent="MainScene/MenuPostion/MarginMenuContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Start New Game"
+
+[node name="Options" type="Button" parent="MainScene/MenuPostion/MarginMenuContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Options"
+
+[node name="Exit" type="Button" parent="MainScene/MenuPostion/MarginMenuContainer/MenuContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+text = "Exit Game"
+
+[node name="RightSpacer" type="PanelContainer" parent="MainScene/MenuPostion"]
+custom_minimum_size = Vector2(300, 0)
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_tt5f1")
