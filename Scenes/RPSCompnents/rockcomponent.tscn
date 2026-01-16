@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://ce131iq7dexgd"]
+
+[ext_resource type="Script" uid="uid://ctoirifiyl7bg" path="res://Scripts/RPSComponentClasses/rockcomponent.gd" id="1_nqi48"]
+
+[node name="RockComponent" type="Button"]
+custom_minimum_size = Vector2(200, 200)
+text = "Rock"
+script = ExtResource("1_nqi48")

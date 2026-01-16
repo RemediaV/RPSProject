@@ -1,4 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://diebh02lc8gor"]
+[gd_scene load_steps=4 format=3 uid="uid://diebh02lc8gor"]
+
+[ext_resource type="PackedScene" uid="uid://bhknls0v2kyts" path="res://Scenes/player.tscn" id="1_12f34"]
+[ext_resource type="Script" uid="uid://b34q2gwoubj1j" path="res://Scripts/game_master.gd" id="2_hip74"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgnae"]
 
@@ -56,32 +59,9 @@ layout_mode = 2
 value = 100.0
 show_percentage = false
 
-[node name="Player" type="MarginContainer" parent="RPSField/Seperator"]
+[node name="Player" parent="RPSField/Seperator" instance=ExtResource("1_12f34")]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="PlayerRPSSeperator" type="HBoxContainer" parent="RPSField/Seperator/Player"]
-layout_mode = 2
-theme_override_constants/separation = 11
-
-[node name="Rock" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Rock"
-
-[node name="Paper" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Paper"
-
-[node name="Scissors" type="Button" parent="RPSField/Seperator/Player/PlayerRPSSeperator"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Scissors"
 
 [node name="LevelIndicator" type="RichTextLabel" parent="."]
 offset_left = 976.0
@@ -127,6 +107,7 @@ size_flags_horizontal = 3
 color = Color(0, 0.50980395, 0, 1)
 
 [node name="Submit" type="Button" parent="."]
+unique_name_in_owner = true
 offset_left = 976.0
 offset_top = 592.0
 offset_right = 1139.5565
@@ -134,3 +115,7 @@ offset_bottom = 635.0652
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mgnae")
 text = "Submit
 "
+
+[node name="GameMaster" type="Node" parent="."]
+unique_name_in_owner = true
+script = ExtResource("2_hip74")
