@@ -1,7 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://diebh02lc8gor"]
+[gd_scene load_steps=6 format=3 uid="uid://diebh02lc8gor"]
 
 [ext_resource type="PackedScene" uid="uid://bhknls0v2kyts" path="res://Scenes/player.tscn" id="1_12f34"]
+[ext_resource type="PackedScene" uid="uid://d0vhvfqk2hvoi" path="res://Scenes/cpu.tscn" id="1_ahap6"]
 [ext_resource type="Script" uid="uid://b34q2gwoubj1j" path="res://Scripts/game_master.gd" id="2_hip74"]
+[ext_resource type="PackedScene" uid="uid://bxn2bulfdh0gu" path="res://Scenes/UpgradeScene.tscn" id="3_b2eky"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgnae"]
 
@@ -15,44 +17,30 @@ theme_override_constants/margin_left = 120
 theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 120
-metadata/_edit_lock_ = true
 
 [node name="Seperator" type="VBoxContainer" parent="RPSField"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 20
-metadata/_edit_lock_ = true
 
-[node name="CPU" type="MarginContainer" parent="RPSField/Seperator"]
+[node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator"]
+custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
 
-[node name="CPURPSSeperator" type="HBoxContainer" parent="RPSField/Seperator/CPU"]
-layout_mode = 2
-theme_override_constants/separation = 11
-
-[node name="RockCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+[node name="Win1" type="ColorRect" parent="RPSField/Seperator/CPUWins"]
 layout_mode = 2
 size_flags_horizontal = 3
-disabled = true
-text = "Rock"
+color = Color(0, 0.50980395, 0, 1)
 
-[node name="PaperCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+[node name="Win2" type="ColorRect" parent="RPSField/Seperator/CPUWins"]
 layout_mode = 2
 size_flags_horizontal = 3
-disabled = true
-text = "Paper"
+color = Color(0, 0.50980395, 0, 1)
 
-[node name="ScissorsCPU" type="Button" parent="RPSField/Seperator/CPU/CPURPSSeperator"]
+[node name="CPU" parent="RPSField/Seperator" instance=ExtResource("1_ahap6")]
+unique_name_in_owner = true
 layout_mode = 2
-size_flags_horizontal = 3
-disabled = true
-text = "Scissors"
 
 [node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator"]
 layout_mode = 2
@@ -62,6 +50,20 @@ show_percentage = false
 [node name="Player" parent="RPSField/Seperator" instance=ExtResource("1_12f34")]
 unique_name_in_owner = true
 layout_mode = 2
+
+[node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[node name="Win1" type="ColorRect" parent="RPSField/Seperator/PlayerWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
+
+[node name="Win2" type="ColorRect" parent="RPSField/Seperator/PlayerWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+color = Color(0, 0.50980395, 0, 1)
 
 [node name="LevelIndicator" type="RichTextLabel" parent="."]
 offset_left = 976.0
@@ -73,38 +75,6 @@ size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 35
 text = "Level: 10"
 horizontal_alignment = 2
-
-[node name="PlayerWins" type="HBoxContainer" parent="."]
-offset_left = 128.0
-offset_top = 522.0
-offset_right = 208.0
-offset_bottom = 542.0
-
-[node name="Win1" type="ColorRect" parent="PlayerWins"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
-
-[node name="Win2" type="ColorRect" parent="PlayerWins"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
-
-[node name="CPUWins" type="HBoxContainer" parent="."]
-offset_left = 128.0
-offset_top = 106.0
-offset_right = 208.0
-offset_bottom = 126.0
-
-[node name="Win1" type="ColorRect" parent="CPUWins"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
-
-[node name="Win2" type="ColorRect" parent="CPUWins"]
-layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
 
 [node name="Submit" type="Button" parent="."]
 unique_name_in_owner = true
@@ -119,3 +89,10 @@ text = "Submit
 [node name="GameMaster" type="Node" parent="."]
 unique_name_in_owner = true
 script = ExtResource("2_hip74")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="UpgradeScene" parent="CanvasLayer" instance=ExtResource("3_b2eky")]
+position = Vector2(115.99999, 47.999996)
+scale = Vector2(0.8, 0.8)

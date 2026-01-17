@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://d0vhvfqk2hvoi"]
+
+[ext_resource type="Script" uid="uid://d0nbvvwag71o2" path="res://Scripts/cpu.gd" id="1_xwqh3"]
+
+[node name="CPU" type="MarginContainer"]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+script = ExtResource("1_xwqh3")
+
+[node name="CPURPSSeperator" type="HBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 11
+alignment = 1

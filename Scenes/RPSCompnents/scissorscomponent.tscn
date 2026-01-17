@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://c54cmr4ngd52e"]
 
 [node name="ScissorsComponent" type="Button"]
-custom_minimum_size = Vector2(200, 200)
+custom_minimum_size = Vector2(150, 150)
 text = "Scissors"
