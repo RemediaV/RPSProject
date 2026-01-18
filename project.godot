@@ -21,6 +21,11 @@ window/stretch/mode="viewport"
 window/stretch/scale_mode="integer"
 window/per_pixel_transparency/allowed=true
 
+[global_group]
+
+GM="GameMaster accessed from anywhere"
+All_Nodes_Caller=""
+
 [rendering]
 
 renderer/rendering_method="mobile"

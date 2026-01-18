@@ -1,5 +1,5 @@
 [gd_scene format=3 uid="uid://ce131iq7dexgd"]
 
-[node name="RockComponent" type="Button"]
+[node name="Rock" type="Button"]
 custom_minimum_size = Vector2(150, 150)
 text = "Rock"

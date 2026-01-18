@@ -1,9 +1,12 @@
-[gd_scene load_steps=6 format=3 uid="uid://diebh02lc8gor"]
+[gd_scene load_steps=8 format=3 uid="uid://diebh02lc8gor"]
 
 [ext_resource type="PackedScene" uid="uid://bhknls0v2kyts" path="res://Scenes/player.tscn" id="1_12f34"]
 [ext_resource type="PackedScene" uid="uid://d0vhvfqk2hvoi" path="res://Scenes/cpu.tscn" id="1_ahap6"]
+[ext_resource type="PackedScene" uid="uid://d2xsng2ek5vev" path="res://Scenes/win_loss.tscn" id="1_hb1yk"]
 [ext_resource type="Script" uid="uid://b34q2gwoubj1j" path="res://Scripts/game_master.gd" id="2_hip74"]
 [ext_resource type="PackedScene" uid="uid://bxn2bulfdh0gu" path="res://Scenes/UpgradeScene.tscn" id="3_b2eky"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb1yk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgnae"]
 
@@ -22,24 +25,32 @@ theme_override_constants/margin_bottom = 120
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme_override_constants/separation = 20
+theme_override_constants/separation = 10
 
 [node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+alignment = 2
 
-[node name="Win1" type="ColorRect" parent="RPSField/Seperator/CPUWins"]
+[node name="cpulabel" type="RichTextLabel" parent="RPSField/Seperator/CPUWins"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "CPU"
+fit_content = true
+scroll_active = false
+
+[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/CPUWins"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hb1yk")
 
-[node name="Win2" type="ColorRect" parent="RPSField/Seperator/CPUWins"]
+[node name="win_loss" parent="RPSField/Seperator/CPUWins" instance=ExtResource("1_hb1yk")]
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
+
+[node name="win_loss2" parent="RPSField/Seperator/CPUWins" instance=ExtResource("1_hb1yk")]
+layout_mode = 2
 
 [node name="CPU" parent="RPSField/Seperator" instance=ExtResource("1_ahap6")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator"]
@@ -48,22 +59,30 @@ value = 100.0
 show_percentage = false
 
 [node name="Player" parent="RPSField/Seperator" instance=ExtResource("1_12f34")]
-unique_name_in_owner = true
 layout_mode = 2
 
 [node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator"]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 
-[node name="Win1" type="ColorRect" parent="RPSField/Seperator/PlayerWins"]
+[node name="win_loss" parent="RPSField/Seperator/PlayerWins" instance=ExtResource("1_hb1yk")]
 layout_mode = 2
-size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
 
-[node name="Win2" type="ColorRect" parent="RPSField/Seperator/PlayerWins"]
+[node name="win_loss2" parent="RPSField/Seperator/PlayerWins" instance=ExtResource("1_hb1yk")]
+layout_mode = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/PlayerWins"]
 layout_mode = 2
 size_flags_horizontal = 3
-color = Color(0, 0.50980395, 0, 1)
+theme_override_styles/panel = SubResource("StyleBoxEmpty_hb1yk")
+
+[node name="playerlabel" type="RichTextLabel" parent="RPSField/Seperator/PlayerWins"]
+custom_minimum_size = Vector2(100, 0)
+layout_mode = 2
+text = "Player"
+fit_content = true
+scroll_active = false
+horizontal_alignment = 2
 
 [node name="LevelIndicator" type="RichTextLabel" parent="."]
 offset_left = 976.0
@@ -76,6 +95,17 @@ theme_override_font_sizes/normal_font_size = 35
 text = "Level: 10"
 horizontal_alignment = 2
 
+[node name="RichTextLabel" type="RichTextLabel" parent="."]
+offset_left = 7.0
+offset_top = 8.0
+offset_right = 366.0
+offset_bottom = 72.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_font_sizes/normal_font_size = 35
+text = "Rock, Paper, Scissors"
+horizontal_alignment = 2
+
 [node name="Submit" type="Button" parent="."]
 unique_name_in_owner = true
 offset_left = 976.0
@@ -86,8 +116,7 @@ theme_override_styles/focus = SubResource("StyleBoxEmpty_mgnae")
 text = "Submit
 "
 
-[node name="GameMaster" type="Node" parent="."]
-unique_name_in_owner = true
+[node name="GameMaster" type="Node" parent="." groups=["GM"]]
 script = ExtResource("2_hip74")
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]

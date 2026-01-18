@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://b467krv8n8vg2"]
+
+[ext_resource type="Script" uid="uid://7djeflqveph8" path="res://Scripts/rps_logic.gd" id="1_u6vo3"]
+
+[node name="RPSLogic" type="HBoxContainer"]
+alignment = 1
+script = ExtResource("1_u6vo3")
