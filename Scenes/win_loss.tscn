@@ -2,4 +2,4 @@
 
 [node name="win_loss" type="ColorRect"]
 custom_minimum_size = Vector2(40, 0)
-color = Color(0.22608715, 0.0049145846, 1.2032688e-08, 1)
+color = Color(0.22745098, 0.003921569, 0, 1)

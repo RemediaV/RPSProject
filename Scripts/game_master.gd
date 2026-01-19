@@ -14,20 +14,14 @@ var RPS_dictionary: Dictionary = {
 	"Paper": ["Rock"]
 	}
 
-
-
-
 func _ready() -> void:
 	%Submit.pressed.connect(_on_submit_pressed.bind())
 
-	
 func _on_submit_pressed():
 	
 	get_tree().call_group("All_Nodes_Caller", "_choose_option")
-
 	calculate_RPS_submissions()
 	get_tree().call_group("All_Nodes_Caller", "_clear_selected")
-	
 	
 func calculate_RPS_submissions():
 	var All_Nodes_Caller_nodes = get_tree().get_nodes_in_group("All_Nodes_Caller")
@@ -45,10 +39,25 @@ func calculate_RPS_submissions():
 	#replace with functions that display tie, win or loss anim.	
 	if p1_submitted == cpu_submitted:
 		print("--Tie, No Wins")
+		get_tree().call_group("All_Nodes_Caller","_timer_reset")
 		return 
-	if cpu_submitted in RPS_dictionary[p1_submitted]:
+	elif cpu_submitted in RPS_dictionary[p1_submitted]:
 		print("--Player Wins")
+		get_tree().call_group("All_Nodes_Caller","_a_win_occurs","PlayerWins")
+		get_tree().call_group("All_Nodes_Caller","_timer_reset")
 		return 
 	else:
 		print("--Cpu Wins")
+		get_tree().call_group("All_Nodes_Caller","_a_win_occurs","CPUWins")
+		get_tree().call_group("All_Nodes_Caller","_timer_reset")
 		return 
+
+func _timer_complete():
+	print("Times Up!")
+	#add logic here to get selected of p1, and auto run a CPU victory if no option selected.
+	get_tree().call_group("All_Nodes_Caller","_timer_reset")
+	
+func _display_upgrades():
+	get_tree().call_group("All_Nodes_Caller","_timer_reset")
+	get_tree().call_group("All_Nodes_Caller","_timer_stop")
+	%UpgradeHover.visible = true

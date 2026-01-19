@@ -1,10 +1,12 @@
-[gd_scene load_steps=8 format=3 uid="uid://diebh02lc8gor"]
+[gd_scene load_steps=10 format=3 uid="uid://diebh02lc8gor"]
 
+[ext_resource type="Script" uid="uid://decevox048i6k" path="res://Scripts/win_display.gd" id="1_8uoga"]
 [ext_resource type="PackedScene" uid="uid://bhknls0v2kyts" path="res://Scenes/player.tscn" id="1_12f34"]
 [ext_resource type="PackedScene" uid="uid://d0vhvfqk2hvoi" path="res://Scenes/cpu.tscn" id="1_ahap6"]
 [ext_resource type="PackedScene" uid="uid://d2xsng2ek5vev" path="res://Scenes/win_loss.tscn" id="1_hb1yk"]
 [ext_resource type="Script" uid="uid://b34q2gwoubj1j" path="res://Scripts/game_master.gd" id="2_hip74"]
 [ext_resource type="PackedScene" uid="uid://bxn2bulfdh0gu" path="res://Scenes/UpgradeScene.tscn" id="3_b2eky"]
+[ext_resource type="Script" uid="uid://vcty284el78u" path="res://Scripts/round_timer.gd" id="3_u810s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb1yk"]
 
@@ -27,10 +29,11 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator"]
+[node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 alignment = 2
+script = ExtResource("1_8uoga")
 
 [node name="cpulabel" type="RichTextLabel" parent="RPSField/Seperator/CPUWins"]
 custom_minimum_size = Vector2(100, 0)
@@ -53,17 +56,19 @@ layout_mode = 2
 [node name="CPU" parent="RPSField/Seperator" instance=ExtResource("1_ahap6")]
 layout_mode = 2
 
-[node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator"]
+[node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
 layout_mode = 2
 value = 100.0
 show_percentage = false
+script = ExtResource("3_u810s")
 
 [node name="Player" parent="RPSField/Seperator" instance=ExtResource("1_12f34")]
 layout_mode = 2
 
-[node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator"]
+[node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
+script = ExtResource("1_8uoga")
 
 [node name="win_loss" parent="RPSField/Seperator/PlayerWins" instance=ExtResource("1_hb1yk")]
 layout_mode = 2
@@ -92,10 +97,10 @@ offset_bottom = 72.0
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_font_sizes/normal_font_size = 35
-text = "Level: 10"
+text = "Level: 1"
 horizontal_alignment = 2
 
-[node name="RichTextLabel" type="RichTextLabel" parent="."]
+[node name="RoomTitle" type="RichTextLabel" parent="."]
 offset_left = 7.0
 offset_top = 8.0
 offset_right = 366.0
@@ -119,9 +124,10 @@ text = "Submit
 [node name="GameMaster" type="Node" parent="." groups=["GM"]]
 script = ExtResource("2_hip74")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UpgradeHover" type="CanvasLayer" parent="."]
+unique_name_in_owner = true
 visible = false
 
-[node name="UpgradeScene" parent="CanvasLayer" instance=ExtResource("3_b2eky")]
+[node name="UpgradeScene" parent="UpgradeHover" instance=ExtResource("3_b2eky")]
 position = Vector2(115.99999, 47.999996)
 scale = Vector2(0.8, 0.8)
