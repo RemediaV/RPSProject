@@ -13,6 +13,9 @@ func _a_win_occurs(winner_string):
 	if last_win_check >= 2:
 		return
 	if last_win_check == 1:
+		if self.name == "CPUWins":
+			print("Game Over!")
+			get_tree().call_group("GM","_GameOver")
+			return
 		print("Next Round!")
 		get_tree().call_group("GM","_display_upgrades")
-					

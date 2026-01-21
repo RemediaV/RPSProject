@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://bvemywffslsin"]
+
+[ext_resource type="Script" uid="uid://fc6hrk0swjet" path="res://Scripts/upgrade.gd" id="1_tkhmf"]
+
+[node name="Upgrade1" type="Button"]
+size_flags_horizontal = 3
+text = "Upgrade_1"
+script = ExtResource("1_tkhmf")

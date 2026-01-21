@@ -1,6 +1,16 @@
-[gd_scene format=3 uid="uid://bxn2bulfdh0gu"]
+[gd_scene load_steps=3 format=3 uid="uid://bxn2bulfdh0gu"]
+
+[ext_resource type="PackedScene" uid="uid://bvemywffslsin" path="res://Scenes/upgrade_1.tscn" id="1_b2k65"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bip82"]
+bg_color = Color(0.07199722, 0.2924566, 0.2543474, 1)
 
 [node name="UpgradeScene" type="Node2D"]
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_styles/panel = SubResource("StyleBoxFlat_bip82")
 
 [node name="SceneOrganizer" type="VBoxContainer" parent="."]
 offset_right = 1152.0
@@ -26,10 +36,8 @@ theme_override_constants/margin_bottom = 20
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Upgrade1" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
+[node name="Upgrade1" parent="SceneOrganizer/MenuMargins/UpgradeMenu" instance=ExtResource("1_b2k65")]
 layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade_1"
 
 [node name="Upgrade2" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
 layout_mode = 2
