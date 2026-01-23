@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://c54cmr4ngd52e"]
+[gd_scene load_steps=2 format=3 uid="uid://c54cmr4ngd52e"]
 
-[node name="Scissors" type="Button"]
+[ext_resource type="Script" uid="uid://dsnf13iohpb2h" path="res://Scripts/RPSComponent.gd" id="1_wubes"]
+
+[node name="Scissors" type="Button" groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(150, 150)
 text = "Scissors"
+script = ExtResource("1_wubes")

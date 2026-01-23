@@ -22,6 +22,7 @@ func _ready() -> void:
 			list_of_available_RPS.back().pressed.connect(_PLAYER_select.bind(child))
 		else:
 			list_of_available_RPS.back().disabled = true
+			list_of_available_RPS.back().players_RPS = false
 			list_of_available_RPS.back().add_theme_stylebox_override("focus", empty_style)
 
 

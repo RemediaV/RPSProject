@@ -1,5 +1,8 @@
-[gd_scene format=3 uid="uid://y5t15ysnhgmt"]
+[gd_scene load_steps=2 format=3 uid="uid://y5t15ysnhgmt"]
 
-[node name="Paper" type="Button"]
+[ext_resource type="Script" uid="uid://dsnf13iohpb2h" path="res://Scripts/RPSComponent.gd" id="1_r3uci"]
+
+[node name="Paper" type="Button" groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(150, 150)
 text = "Paper"
+script = ExtResource("1_r3uci")

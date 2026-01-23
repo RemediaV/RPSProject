@@ -71,7 +71,18 @@ func player_wins():
 	print("--Player Wins")
 	get_tree().call_group("All_Nodes_Caller","_a_win_occurs","PlayerWins")
 	get_tree().call_group("All_Nodes_Caller","_timer_reset")
-	
+
+func _check_levels():
+	var All_Nodes_Caller_nodes = get_tree().get_nodes_in_group("All_Nodes_Caller")
+	var node_list_with_levels = []
+	for node in All_Nodes_Caller_nodes:
+		if node.get("players_RPS") != null:
+			if node.get("my_level") != null and node.players_RPS == true:
+				node_list_with_levels.append([node.name,node.my_level])
+	print(node_list_with_levels)
+	return node_list_with_levels
+
+
 func _GameOver():
 	get_tree().call_group("All_Nodes_Caller","_timer_stop")
 	%Submit.disabled = true
