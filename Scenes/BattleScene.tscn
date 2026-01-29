@@ -1,20 +1,21 @@
-[gd_scene load_steps=10 format=3 uid="uid://diebh02lc8gor"]
+[gd_scene format=3 uid="uid://diebh02lc8gor"]
 
 [ext_resource type="Script" uid="uid://decevox048i6k" path="res://Scripts/win_display.gd" id="1_8uoga"]
 [ext_resource type="PackedScene" uid="uid://bhknls0v2kyts" path="res://Scenes/player.tscn" id="1_12f34"]
 [ext_resource type="PackedScene" uid="uid://d0vhvfqk2hvoi" path="res://Scenes/cpu.tscn" id="1_ahap6"]
 [ext_resource type="PackedScene" uid="uid://d2xsng2ek5vev" path="res://Scenes/win_loss.tscn" id="1_hb1yk"]
-[ext_resource type="Script" uid="uid://b34q2gwoubj1j" path="res://Scripts/game_master.gd" id="2_hip74"]
-[ext_resource type="PackedScene" uid="uid://bxn2bulfdh0gu" path="res://Scenes/UpgradeScene.tscn" id="3_b2eky"]
 [ext_resource type="Script" uid="uid://vcty284el78u" path="res://Scripts/round_timer.gd" id="3_u810s"]
+[ext_resource type="Script" uid="uid://d3xo0oxmriadj" path="res://Scripts/submit_func_changer.gd" id="6_47u5s"]
+[ext_resource type="Script" uid="uid://p72igxggf8qn" path="res://Scripts/upgrade_screen_handler.gd" id="7_8uoga"]
+[ext_resource type="Script" uid="uid://pvnqm30udjdp" path="res://Scripts/selected.gd" id="7_47u5s"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_hb1yk"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_mgnae"]
 
-[node name="BattleScene" type="Node2D"]
+[node name="BattleScene" type="Node2D" unique_id=581627719]
 
-[node name="RPSField" type="MarginContainer" parent="."]
+[node name="RPSField" type="MarginContainer" parent="." unique_id=216993443]
 offset_top = 1.0
 offset_right = 1152.0
 offset_bottom = 649.0
@@ -23,65 +24,65 @@ theme_override_constants/margin_top = 120
 theme_override_constants/margin_right = 120
 theme_override_constants/margin_bottom = 120
 
-[node name="Seperator" type="VBoxContainer" parent="RPSField"]
+[node name="Seperator" type="VBoxContainer" parent="RPSField" unique_id=271242965]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 10
 
-[node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
+[node name="CPUWins" type="HBoxContainer" parent="RPSField/Seperator" unique_id=514122364 groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 alignment = 2
 script = ExtResource("1_8uoga")
 
-[node name="cpulabel" type="RichTextLabel" parent="RPSField/Seperator/CPUWins"]
+[node name="cpulabel" type="RichTextLabel" parent="RPSField/Seperator/CPUWins" unique_id=1364489353]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "CPU"
 fit_content = true
 scroll_active = false
 
-[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/CPUWins"]
+[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/CPUWins" unique_id=883839224]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hb1yk")
 
-[node name="win_loss" parent="RPSField/Seperator/CPUWins" instance=ExtResource("1_hb1yk")]
+[node name="win_loss" parent="RPSField/Seperator/CPUWins" unique_id=1872227239 instance=ExtResource("1_hb1yk")]
 layout_mode = 2
 
-[node name="win_loss2" parent="RPSField/Seperator/CPUWins" instance=ExtResource("1_hb1yk")]
+[node name="win_loss2" parent="RPSField/Seperator/CPUWins" unique_id=1904821217 instance=ExtResource("1_hb1yk")]
 layout_mode = 2
 
-[node name="CPU" parent="RPSField/Seperator" instance=ExtResource("1_ahap6")]
+[node name="CPU" parent="RPSField/Seperator" unique_id=1875201572 instance=ExtResource("1_ahap6")]
 layout_mode = 2
 
-[node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
+[node name="RoundTimer" type="ProgressBar" parent="RPSField/Seperator" unique_id=1084980291 groups=["All_Nodes_Caller"]]
 layout_mode = 2
 value = 100.0
 show_percentage = false
 script = ExtResource("3_u810s")
 
-[node name="Player" parent="RPSField/Seperator" instance=ExtResource("1_12f34")]
+[node name="Player" parent="RPSField/Seperator" unique_id=1174443327 instance=ExtResource("1_12f34")]
 layout_mode = 2
 
-[node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator" groups=["All_Nodes_Caller"]]
+[node name="PlayerWins" type="HBoxContainer" parent="RPSField/Seperator" unique_id=1305474984 groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(0, 20)
 layout_mode = 2
 script = ExtResource("1_8uoga")
 
-[node name="win_loss" parent="RPSField/Seperator/PlayerWins" instance=ExtResource("1_hb1yk")]
+[node name="win_loss" parent="RPSField/Seperator/PlayerWins" unique_id=1638775703 instance=ExtResource("1_hb1yk")]
 layout_mode = 2
 
-[node name="win_loss2" parent="RPSField/Seperator/PlayerWins" instance=ExtResource("1_hb1yk")]
+[node name="win_loss2" parent="RPSField/Seperator/PlayerWins" unique_id=726366399 instance=ExtResource("1_hb1yk")]
 layout_mode = 2
 
-[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/PlayerWins"]
+[node name="PanelContainer" type="PanelContainer" parent="RPSField/Seperator/PlayerWins" unique_id=2082211720]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_styles/panel = SubResource("StyleBoxEmpty_hb1yk")
 
-[node name="playerlabel" type="RichTextLabel" parent="RPSField/Seperator/PlayerWins"]
+[node name="playerlabel" type="RichTextLabel" parent="RPSField/Seperator/PlayerWins" unique_id=1926011883]
 custom_minimum_size = Vector2(100, 0)
 layout_mode = 2
 text = "Player"
@@ -89,7 +90,7 @@ fit_content = true
 scroll_active = false
 horizontal_alignment = 2
 
-[node name="LevelIndicator" type="RichTextLabel" parent="."]
+[node name="LevelIndicator" type="RichTextLabel" parent="." unique_id=721055363]
 offset_left = 976.0
 offset_top = 8.0
 offset_right = 1144.0
@@ -100,7 +101,7 @@ theme_override_font_sizes/normal_font_size = 35
 text = "Level: 1"
 horizontal_alignment = 2
 
-[node name="RoomTitle" type="RichTextLabel" parent="."]
+[node name="RoomTitle" type="RichTextLabel" parent="." unique_id=206675242]
 offset_left = 7.0
 offset_top = 8.0
 offset_right = 366.0
@@ -111,8 +112,7 @@ theme_override_font_sizes/normal_font_size = 35
 text = "Rock, Paper, Scissors"
 horizontal_alignment = 2
 
-[node name="Submit" type="Button" parent="."]
-unique_name_in_owner = true
+[node name="Submit" type="Button" parent="." unique_id=1233745713 groups=["All_Nodes_Caller"]]
 offset_left = 976.0
 offset_top = 592.0
 offset_right = 1139.5565
@@ -120,14 +120,25 @@ offset_bottom = 635.0652
 theme_override_styles/focus = SubResource("StyleBoxEmpty_mgnae")
 text = "Submit
 "
+script = ExtResource("6_47u5s")
 
-[node name="GameMaster" type="Node" parent="." groups=["GM"]]
-script = ExtResource("2_hip74")
+[node name="Selected" type="RichTextLabel" parent="." unique_id=1479776636 groups=["All_Nodes_Caller"]]
+offset_left = 800.0
+offset_top = 584.0
+offset_right = 976.0
+offset_bottom = 632.0
+script = ExtResource("7_47u5s")
 
-[node name="UpgradeHover" type="CanvasLayer" parent="."]
-unique_name_in_owner = true
+[node name="Timer" type="Timer" parent="Selected" unique_id=939405686]
+wait_time = 3.0
+autostart = true
+
+[node name="UpgradeHover" type="CanvasLayer" parent="." unique_id=417198802 groups=["All_Nodes_Caller"]]
 visible = false
-
-[node name="UpgradeScene" parent="UpgradeHover" instance=ExtResource("3_b2eky")]
-position = Vector2(115.99999, 47.999996)
+offset = Vector2(100, 65)
 scale = Vector2(0.8, 0.8)
+transform = Transform2D(0.8, 0, 0, 0.8, 100, 65)
+script = ExtResource("7_8uoga")
+
+[connection signal="timeout" from="Selected/Timer" to="Selected" method="_on_timer_timeout"]
+[connection signal="visibility_changed" from="UpgradeHover" to="UpgradeHover" method="_on_visibility_changed"]

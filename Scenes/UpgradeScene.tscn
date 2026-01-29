@@ -1,22 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://bxn2bulfdh0gu"]
+[gd_scene format=3 uid="uid://bxn2bulfdh0gu"]
 
-[ext_resource type="PackedScene" uid="uid://bvemywffslsin" path="res://Scenes/upgrade_1.tscn" id="1_b2k65"]
+[ext_resource type="Script" uid="uid://cf6lhmnhlldx1" path="res://Scripts/upgrade_spawner.gd" id="1_b2k65"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bip82"]
 bg_color = Color(0.07199722, 0.2924566, 0.2543474, 1)
 
-[node name="UpgradeScene" type="Node2D"]
+[node name="UpgradeScene" type="Node2D" unique_id=1177653417]
 
-[node name="PanelContainer" type="PanelContainer" parent="."]
+[node name="PanelContainer" type="PanelContainer" parent="." unique_id=1946459810]
 offset_right = 1152.0
 offset_bottom = 648.0
 theme_override_styles/panel = SubResource("StyleBoxFlat_bip82")
 
-[node name="SceneOrganizer" type="VBoxContainer" parent="."]
+[node name="SceneOrganizer" type="VBoxContainer" parent="." unique_id=2140986001]
 offset_right = 1152.0
 offset_bottom = 648.0
 
-[node name="MainText" type="RichTextLabel" parent="SceneOrganizer"]
+[node name="MainText" type="RichTextLabel" parent="SceneOrganizer" unique_id=294031692]
 custom_minimum_size = Vector2(0, 100)
 layout_mode = 2
 theme_override_font_sizes/normal_font_size = 65
@@ -25,26 +25,16 @@ text = "Choose An Upgrade:
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="MenuMargins" type="MarginContainer" parent="SceneOrganizer"]
+[node name="MenuMargins" type="MarginContainer" parent="SceneOrganizer" unique_id=1773535961]
 layout_mode = 2
 size_flags_vertical = 3
 theme_override_constants/margin_left = 20
 theme_override_constants/margin_right = 20
 theme_override_constants/margin_bottom = 20
 
-[node name="UpgradeMenu" type="HBoxContainer" parent="SceneOrganizer/MenuMargins"]
+[node name="UpgradeMenu" type="HBoxContainer" parent="SceneOrganizer/MenuMargins" unique_id=528199701]
 layout_mode = 2
 size_flags_vertical = 3
+script = ExtResource("1_b2k65")
 
-[node name="Upgrade1" parent="SceneOrganizer/MenuMargins/UpgradeMenu" instance=ExtResource("1_b2k65")]
-layout_mode = 2
-
-[node name="Upgrade2" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade_2"
-
-[node name="Upgrade3" type="Button" parent="SceneOrganizer/MenuMargins/UpgradeMenu"]
-layout_mode = 2
-size_flags_horizontal = 3
-text = "Upgrade_3"
+[connection signal="visibility_changed" from="SceneOrganizer/MenuMargins/UpgradeMenu" to="SceneOrganizer/MenuMargins/UpgradeMenu" method="_on_visibility_changed"]

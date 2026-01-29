@@ -5,7 +5,7 @@ extends ProgressBar
 func _process(_delta: float) -> void:
 	value -= value_subtract
 	if value <= 0:
-		get_tree().call_group("GM","_timer_complete")
+		gm._timer_complete()
 		
 		
 		

@@ -1,8 +1,8 @@
-[gd_scene load_steps=2 format=3 uid="uid://ce131iq7dexgd"]
+[gd_scene format=3 uid="uid://ce131iq7dexgd"]
 
 [ext_resource type="Script" uid="uid://dsnf13iohpb2h" path="res://Scripts/RPSComponent.gd" id="1_nqi48"]
 
-[node name="Rock" type="Button" groups=["All_Nodes_Caller"]]
+[node name="Rock" type="Button" unique_id=2010361498 groups=["All_Nodes_Caller"]]
 custom_minimum_size = Vector2(150, 150)
 text = "Rock"
 script = ExtResource("1_nqi48")

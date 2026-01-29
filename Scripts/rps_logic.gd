@@ -5,10 +5,9 @@ var list_of_available_RPS = []
 
 
 func _ready() -> void:
-	var GameMaster = get_tree().get_first_node_in_group("GM")
-	var rock_instance = GameMaster.RockComponent.instantiate()
-	var paper_instance = GameMaster.PaperComponent.instantiate()
-	var scissors_instance = GameMaster.ScissorsComponent.instantiate()
+	var rock_instance = gm.RockComponent.instantiate()
+	var paper_instance = gm.PaperComponent.instantiate()
+	var scissors_instance = gm.ScissorsComponent.instantiate()
 	var empty_style = StyleBoxEmpty.new()
 	
 	add_child(rock_instance)
@@ -29,12 +28,13 @@ func _ready() -> void:
 
 func _choose_option():
 	if !is_player:
-		selected = list_of_available_RPS[randi() % list_of_available_RPS.size()].name
+		selected = list_of_available_RPS[randi() % list_of_available_RPS.size()].text
 
 
 func _clear_selected():
 	selected = ""
-
+	#gm.selected_update(selected)
 
 func _PLAYER_select(child):
-	selected = child.name 
+	selected = child.text 
+	gm.selected_update(selected)
